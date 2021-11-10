@@ -11,10 +11,12 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * event sourcing - maintaining time ordered sequence of events
 
 ## Components and terms associated
-* Broker
+* Broker - The relay system that accepts the produced message and communicates it to the consumer.
 * Producer
 * Consumer
 * Topic
+* Message
 * Partition
 * Zookeeper
 * Amazon MSK
+* Leader election
