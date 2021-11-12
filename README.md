@@ -9,3 +9,14 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * log aggregation - collect multiple logs from different systems and store, like in HDFS
 * commit log service - external commit log for distributed systems
 * event sourcing - maintaining time ordered sequence of events
+
+## Components and terms associated
+* Broker - The relay system that accepts the produced message and communicates it to the consumer.
+* Producer
+* Consumer
+* Topic
+* Message
+* Partition
+* Zookeeper
+* Amazon MSK
+* Leader election
