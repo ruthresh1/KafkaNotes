@@ -14,7 +14,7 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Broker - The relay system that accepts the produced message and communicates it to the consumer.
 * Producer - the service that creates a message for particular service and sends it to the broker.
 * Consumer - the service that listens, accepts, processes message from broker
-* Topic
+* Topic - the title of the message, used to identified what message is sent from producer to consumer
 * Message
 * Partition
 * Zookeeper
