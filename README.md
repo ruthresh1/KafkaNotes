@@ -15,7 +15,7 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Producer - the service that creates a message for particular service and sends it to the broker.
 * Consumer - the service that listens, accepts, processes message from broker
 * Topic - the title of the message, used to identified what message is sent from producer to consumer
-* Message
+* Message - the information passed from producer to consumer (in any data format - json, xml)
 * Partition
 * Zookeeper
 * Amazon MSK
