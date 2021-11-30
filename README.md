@@ -18,5 +18,5 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Message - the information passed from producer to consumer (in any data format - json, xml)
 * Partition - messages that reach the broker are kept seperately into different boxes named partitions to which specific listeners listen from
 * Zookeeper - the service that keeps track of brokers and handles availability and leader election
-* Amazon MSK
+* Amazon MSK - aws service that maintains brokers and zookeeper
 * Leader election
