@@ -19,4 +19,4 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Partition - messages that reach the broker are kept seperately into different boxes named partitions to which specific listeners listen from
 * Zookeeper - the service that keeps track of brokers and handles availability and leader election
 * Amazon MSK - aws service that maintains brokers and zookeeper
-* Leader election
+* Leader election - if the lead broker fails, then zookeeper elects a leader among the remaining nodes
