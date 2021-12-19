@@ -20,3 +20,5 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Zookeeper - the service that keeps track of brokers and handles availability and leader election
 * Amazon MSK - aws service that maintains brokers and zookeeper
 * Leader election - if the lead broker fails, then zookeeper elects a leader among the remaining nodes
+
+### Topic
