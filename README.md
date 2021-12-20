@@ -22,3 +22,4 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Leader election - if the lead broker fails, then zookeeper elects a leader among the remaining nodes
 
 ### Topic
+A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics.
