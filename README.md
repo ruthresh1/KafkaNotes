@@ -20,3 +20,14 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Zookeeper - the service that keeps track of brokers and handles availability and leader election
 * Amazon MSK - aws service that maintains brokers and zookeeper
 * Leader election - if the lead broker fails, then zookeeper elects a leader among the remaining nodes
+
+### Topic
+A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics.
+
+### Broker
+A Kafka broker is modelled as KafkaServer that hosts topics. It receives messages from producers and stores them on disk keyed by unique offset.
+It allows consumers to fetch messages by topic, partition and offset. They can create a Kafka cluster by sharing information between each other directly or indirectly using Zookeeper. It has exactly one broker that acts as the Controller.
+
+### Producer
+Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that.
+In case of Broker failures, it will automatically recover. If producer sends data without a key, then data is sent in Round Robin Fashion a little bit of data to each one of the brokers in the cluster. It can choose to receive acknowledgement of data writes.
