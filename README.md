@@ -31,3 +31,5 @@ It allows consumers to fetch messages by topic, partition and offset. They can c
 ### Producer
 Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that.
 In case of Broker failures, it will automatically recover. If producer sends data without a key, then data is sent in Round Robin Fashion a little bit of data to each one of the brokers in the cluster. It can choose to receive acknowledgement of data writes.
+
+### Consumer
