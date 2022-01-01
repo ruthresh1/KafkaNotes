@@ -36,3 +36,5 @@ In case of Broker failures, it will automatically recover. If producer sends dat
 Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions.
 
 ### Partition
+
+### Zookeeper
