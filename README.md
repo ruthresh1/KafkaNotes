@@ -38,3 +38,5 @@ Consumers read data from a topic (identified by name). They know which broker to
 ### Partition
 
 ### Zookeeper
+
+### Offset
