@@ -36,6 +36,7 @@ In case of Broker failures, it will automatically recover. If producer sends dat
 Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions.
 
 ### Partition
+Partitions are similar like columns in a table where each partition is ordered. Each message within a partition gets an incremental id, called offset. You as a user have to specify the number of Partitions for a Topic. The first message to Partition 0 starts with offset 0 then increments thereafter, where offsets can go to infinite, since they are unbounded. They can have different number of messages (basically offsets), since they are independent
 
 ### Zookeeper
 
