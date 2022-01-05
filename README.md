@@ -39,5 +39,6 @@ Consumers read data from a topic (identified by name). They know which broker to
 Partitions are similar like columns in a table where each partition is ordered. Each message within a partition gets an incremental id, called offset. You as a user have to specify the number of Partitions for a Topic. The first message to Partition 0 starts with offset 0 then increments thereafter, where offsets can go to infinite, since they are unbounded. They can have different number of messages (basically offsets), since they are independent
 
 ### Zookeeper
+Zookeeper manages brokers. It holds the brokers together (keeps a list of them). It helps in performing leader election for partitions, when a broker goes down a new replicated partition of another broker becomes the leader. It sends notifications to kafka in case of changes (e.g new topic, broker dies, broker comes up, delete topics, etc…). Kafka cannot work without a Zookeeper. So we first need to start Zookeeper. Zookeeper by design operates with an odd number of servers (3,5,7) in production. It also follows the concept of Leaders and Followers. Zookeeper that has a leader (handles writes) the rest of the zookeeper servers are followers (handles reads)
 
 ### Offset
