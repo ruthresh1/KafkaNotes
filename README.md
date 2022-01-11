@@ -25,8 +25,8 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics. Similar to a table in a database (without all the constraints), one can have as many topics as you want. It is identified by its name. They are split into Partitions.
 
 ### Broker
-A Kafka broker is modelled as KafkaServer that hosts topics. It receives messages from producers and stores them on disk keyed by unique offset.
-It allows consumers to fetch messages by topic, partition and offset. They can create a Kafka cluster by sharing information between each other directly or indirectly using Zookeeper. It has exactly one broker that acts as the Controller.
+A Kafka broker is modelled as KafkaServer that hosts topics. It receives messages from producers and stores them on disk keyed by unique offset. It allows consumers to fetch messages by topic, partition and offset. They can create a Kafka cluster by sharing information between each other directly or indirectly using Zookeeper. It has exactly one broker that acts as the Controller.
+A Kafka cluster is composed of multiple brokers (servers). Each broker is identified with its ID (integer). It cannot be named like “My Broker” or something. Each broker contains certain topic partitions. Each broker contains some kind of data but not all data, because Kafka is distributed. After connecting to any broker (called a bootstrap broker), you will be connected to entire cluster. A good number to get started is 3 brokers, but some big clusters have over 100 brokers.
 
 ### Producer
 Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that.
