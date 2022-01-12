@@ -29,8 +29,10 @@ A Kafka broker is modelled as KafkaServer that hosts topics. It receives message
 A Kafka cluster is composed of multiple brokers (servers). Each broker is identified with its ID (integer). It cannot be named like “My Broker” or something. Each broker contains certain topic partitions. Each broker contains some kind of data but not all data, because Kafka is distributed. After connecting to any broker (called a bootstrap broker), you will be connected to entire cluster. A good number to get started is 3 brokers, but some big clusters have over 100 brokers.
 
 ### Producer
-Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that.
-In case of Broker failures, it will automatically recover. If producer sends data without a key, then data is sent in Round Robin Fashion a little bit of data to each one of the brokers in the cluster. It can choose to receive acknowledgement of data writes.
+Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that. In case of Broker failures, it will automatically recover. If producer sends data without a key, then data is sent in Round Robin Fashion a little bit of data to each one of the brokers in the cluster. It can choose to receive acknowledgement of data writes as 
+* 0 - no wait for acknowledgement.
+* 1 - wait for leader acknowledgement.
+* all - wait for acknowledgement from leader + replicas.
 
 ### Consumer
 Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions.
