@@ -35,7 +35,7 @@ Producers write data to topics (which is made of partitions), they automatically
 * all - wait for acknowledgement from leader + replicas.
 
 ### Consumer
-Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions.
+Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions. They usually operate in a group where partitions are assigned among them.
 
 ### Partition
 Partitions are similar like columns in a table where each partition is ordered. Each message within a partition gets an incremental id, called offset. You as a user have to specify the number of Partitions for a Topic. The first message to Partition 0 starts with offset 0 then increments thereafter, where offsets can go to infinite, since they are unbounded. They can have different number of messages (basically offsets), since they are independent
