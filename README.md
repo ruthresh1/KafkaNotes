@@ -22,18 +22,20 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Leader election - if the lead broker fails, then zookeeper elects a leader among the remaining nodes
 
 ### Topic
-A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics.
+A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics. Similar to a table in a database (without all the constraints), one can have as many topics as you want. It is identified by its name. They are split into Partitions.
 
 ### Broker
-A Kafka broker is modelled as KafkaServer that hosts topics. It receives messages from producers and stores them on disk keyed by unique offset.
-It allows consumers to fetch messages by topic, partition and offset. They can create a Kafka cluster by sharing information between each other directly or indirectly using Zookeeper. It has exactly one broker that acts as the Controller.
+A Kafka broker is modelled as KafkaServer that hosts topics. It receives messages from producers and stores them on disk keyed by unique offset. It allows consumers to fetch messages by topic, partition and offset. They can create a Kafka cluster by sharing information between each other directly or indirectly using Zookeeper. It has exactly one broker that acts as the Controller.
+A Kafka cluster is composed of multiple brokers (servers). Each broker is identified with its ID (integer). It cannot be named like “My Broker” or something. Each broker contains certain topic partitions. Each broker contains some kind of data but not all data, because Kafka is distributed. After connecting to any broker (called a bootstrap broker), you will be connected to entire cluster. A good number to get started is 3 brokers, but some big clusters have over 100 brokers.
 
 ### Producer
-Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that.
-In case of Broker failures, it will automatically recover. If producer sends data without a key, then data is sent in Round Robin Fashion a little bit of data to each one of the brokers in the cluster. It can choose to receive acknowledgement of data writes.
+Producers write data to topics (which is made of partitions), they automatically know to which broker and partition to write to, so the developer doesn’t need to know that. In case of Broker failures, it will automatically recover. If producer sends data without a key, then data is sent in Round Robin Fashion a little bit of data to each one of the brokers in the cluster. It can choose to receive acknowledgement of data writes as 
+* 0 - no wait for acknowledgement.
+* 1 - wait for leader acknowledgement.
+* all - wait for acknowledgement from leader + replicas.
 
 ### Consumer
-Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions.
+Consumers read data from a topic (identified by name). They know which broker to read from. In case of broker failures, consumers know how to recover. Data is read in order within each partitions but there is no Reading in Order between Partitions. They usually operate in a group where partitions are assigned among them.
 
 ### Partition
 Partitions are similar like columns in a table where each partition is ordered. Each message within a partition gets an incremental id, called offset. You as a user have to specify the number of Partitions for a Topic. The first message to Partition 0 starts with offset 0 then increments thereafter, where offsets can go to infinite, since they are unbounded. They can have different number of messages (basically offsets), since they are independent
