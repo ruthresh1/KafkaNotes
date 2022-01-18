@@ -1,6 +1,6 @@
 # KafkaNotes
 
-Kafka is a distributed and scalable messaging system for real-time consumption of messages. It outperforms traditional messaging systems in many ways.
+Kafka is a distributed and scalable messaging system for real-time consumption of messages. It outperforms traditional messaging systems in many ways. The core library is written in Java but can be used in any language that has Kafka library.
 
 ## Use cases
 * messaging system - real time messages can be sent and received in millions
