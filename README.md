@@ -1,6 +1,6 @@
 # KafkaNotes
 
-Kafka is a distributed and scalable messaging system for real-time consumption of messages. It outperforms traditional messaging systems in many ways.
+Kafka is a distributed and scalable messaging system for real-time consumption of messages. It outperforms traditional messaging systems in many ways. The core library is written in Java but can be used in any language that has Kafka library.
 
 ## Use cases
 * messaging system - real time messages can be sent and received in millions
@@ -47,10 +47,10 @@ Zookeeper manages brokers. It holds the brokers together (keeps a list of them).
 Kafka stores the offsets at which a consumer group has been reading. The offsets committed live in a Kafka topic named “__consumer_offsets” (double underscore followed by consumer then followed by a single underscore then finally followed by offsets). When a consumer in a group has processed data received from Kafka, the consumer then should be committing the offsets to the topic name “__consumer_offsets”. This is done automatically in Kafka. If a consumer dies, it will be able to read back from where it left off, thanks to the committed consumer offsets!
 
 ### Kafka Guarantees
-Messages are appended to a topic partition in the order they are sent.
-Consumers read messages in the order stored in a topic partition
-With a replication factor of N, producers and consumers can tolerate up to N-I brokers being down.
-This is why a replication factor of 3 is a good idea:
-Allows for one broker to be taken down for maintenance
-Allows for another broker to be take down unexpectedly
-As long as the number of partitions remains constant for a topic (no new partitions), the same key will always go to the same partition
+* Messages are appended to a topic partition in the order they are sent.
+* Consumers read messages in the order stored in a topic partition
+* With a replication factor of N, producers and consumers can tolerate up to N-I brokers being down.
+* This is why a replication factor of 3 is a good idea:
+* Allows for one broker to be taken down for maintenance
+* Allows for another broker to be take down unexpectedly
+* As long as the number of partitions remains constant for a topic (no new partitions), the same key will always go to the same partition
