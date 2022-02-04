@@ -22,7 +22,7 @@ Kafka is a distributed and scalable messaging system for real-time consumption o
 * Leader election - if the lead broker fails, then zookeeper elects a leader among the remaining nodes
 
 ### Topic
-A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics. Similar to a table in a database (without all the constraints), one can have as many topics as you want. It is identified by its name. They are split into Partitions.
+A Topic is a category/feed name to which records are stored and published. All Kafka records are organized into topics. Producer applications write data to topics and consumer applications read from topics. It is similar to a table in a database (without all the constraints), one can have as many topics as you want. It is identified by its name. They are split into Partitions.
 
 ### Broker
 A Kafka broker is modelled as KafkaServer that hosts topics. It receives messages from producers and stores them on disk keyed by unique offset. It allows consumers to fetch messages by topic, partition and offset. They can create a Kafka cluster by sharing information between each other directly or indirectly using Zookeeper. It has exactly one broker that acts as the Controller.
