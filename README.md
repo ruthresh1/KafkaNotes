@@ -45,6 +45,7 @@ Zookeeper manages brokers. It holds the brokers together (keeps a list of them).
 
 ### Offset
 Kafka stores the offsets at which a consumer group has been reading. The offsets committed live in a Kafka topic named “__consumer_offsets” (double underscore followed by consumer then followed by a single underscore then finally followed by offsets). When a consumer in a group has processed data received from Kafka, the consumer then should be committing the offsets to the topic name “__consumer_offsets”. This is done automatically in Kafka. If a consumer dies, it will be able to read back from where it left off, thanks to the committed consumer offsets!
+Offsets are like primary id of a Column, which keeps on incrementing and cannot be changed or updated. It only has meaning for a specific partition. Which means Partition 0, Offset 0 is different from Partition 1, Offset 0. Order is only guaranteed only within a partition (not across partitions). Data in Kafka is kept only for a limited time (default retention period is one week). Offsets keep on incrementing, they can never go back to 0. Once the data is written to a partition, it can’t be changed (Data within a portion is immutable). If you want to write a new message, you write it at the end. Data is assigned randomly to a partition unless a key is provided.
 
 ### Kafka Guarantees
 * Messages are appended to a topic partition in the order they are sent.
